@@ -3,7 +3,7 @@ import { saveAs } from 'file-saver';
 
 type Header = Pick<Column, 'header' | 'key'>;
 
-interface IParams {
+interface Options {
   headers?: Array<Header>;
   data: any;
   fileName?: string;
@@ -44,7 +44,7 @@ export default function useExcel() {
     fileName = new Date().toISOString(),
     headerStyles,
     rowStyles
-  }: IParams): Promise<void> => {
+  }: Options): Promise<void> => {
     if (!data) {
       throw new Error('data is required');
     }
